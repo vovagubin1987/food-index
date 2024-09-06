@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+    <link rel="import" href="http://sch7sortavala.ucoz.ru/food/index.hgf">
+    <title></title>
+    <meta charset="utf-8">
+<style type="text/css">
+   TABLE.food_table{
+    width: 50%; 
+    border: 1px solid #399; 
+    border-spacing: 7px 5px; 
+   }
+   TD.food_table {
+    background: #fc0;
+    border: 1px solid #333; 
+    padding: 5px; 
+   }
+   TD.food_table_z {
+   background: #9c1;
+    border: 1px solid #333;
+    padding: 5px;
+    text-align: center;
+    }
+    
+    .wrapper {
+        position: absolute;
+        width: 110px;
+        height: 130px;
+        margin-bottom: 15px;
+    }
+    #dd {
+        position: relative;
+        height: 130px !important;
+    }
+  </style>
+  <script>
+var width=110,r=1;
+
+setTimeout('ff()', 100);
+function ff() {
+d=document.getElementById('dd');
+
+if(d.width>2&&r==1){
+	d.style.left=(parseInt(d.style.left)+1)+"px";
+	d.width=d.width-2;
+}else if(d.width<width&&r==0){
+	d.style.left=(parseInt(d.style.left)-1)+"px";
+	d.width=d.width+2;
+}else {r=(r==1?0:1);}
+setTimeout('ff()', 80);
+}
+
+</script>
+
+
+     <script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    //file = elmnt.getAttribute("w3-include-html")+"?r=" + Math.random().toString();
+    file = "/food/index.hgf?r=" + Math.random().toString();
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function(){
+      	if (this.readyState == 4) {
+      		if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+      		if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+      		/*remove the attribute, and call this function once more:*/
+      		elmnt.removeAttribute("w3-include-html");
+      		//await 
+      		setTimeout(includeHTML, 120000);
+      	};
+      	};
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+
+      return;
+
+    }
+  }
+}
+</script> 
+  </head>
+  <body>
+    <header>123</header>
+    <main>$RCODE_2$</main>
+     <div w3-include-html="/food/index.hgf"></div>  
+    <footer></footer>
+     <script>
+includeHTML();
+</script> 
+  </body>
+</html>
