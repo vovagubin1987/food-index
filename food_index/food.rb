@@ -159,7 +159,7 @@ _up1=%*
     }
   </style>
   <script>
-var width=110,r=5;
+var width=110,r=1;
 
 setTimeout('ff()', 100);
 function ff() {
