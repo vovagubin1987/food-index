@@ -11,7 +11,7 @@ ftp.debug_mode = true
 #^M
 ftp.binary = false
 #^M
-ftp.login(user="0sch7sortavala",passwd='Abc27071987',acct=nil)
+ftp.login(user="",passwd='',acct=nil)
 #ftp.login^M
 p "123"
 files = ftp.chdir('food')
